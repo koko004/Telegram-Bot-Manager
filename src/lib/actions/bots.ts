@@ -128,10 +128,15 @@ export async function stopBot(botId: string) {
 
 export async function deleteBot(botId: string) {
   try {
-    await botService.deleteBot(botId);
-  } catch(error: any) {
+    const result = await botService.deleteBot(botId);
+    if (!result) {
+        return { error: 'Failed to delete bot: Bot not found.' };
+    }
+  } catch (error: any) {
     console.error(`Failed to delete bot ${botId}:`, error.message);
+    return { error: `Failed to delete bot: ${error.message}` };
   }
+
   console.log('Revalidating path / after deleteBot');
   revalidatePath('/');
   return { success: true };

@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt';
 import type { Bot, Log, User } from '@/lib/types';
 
 const dataDir = join(process.cwd(), 'data');
-const dbFile = join(dataDir, 'db.json');
+const dbFile = join(process.cwd(), 'src/data/bots.json');
 
 fs.ensureDirSync(dataDir);
 

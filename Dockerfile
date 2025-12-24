@@ -13,6 +13,9 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+# Install Docker CLI and Docker Compose within the container
+RUN apk add --no-cache docker-cli docker-cli-compose
+
 # Build the Next.js application
 RUN npm run build
 
