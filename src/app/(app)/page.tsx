@@ -4,6 +4,8 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { getBotsWithStatus } from '@/lib/actions/bots';
 import { DashboardCounters } from '@/components/dashboard/dashboard-counters';
 
+export const dynamic = 'force-dynamic';
+
 export default async function DashboardPage() {
   const bots = await getBotsWithStatus();
 

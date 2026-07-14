@@ -24,7 +24,13 @@ async function getDb() {
             console.log('Initializing database...');
             await db.read();
             console.log('Database read. Current data:', db.data);
-            if (db.data && db.data.users.length === 0) {
+
+            // Ensure data has the correct structure
+            if (!db.data || !Array.isArray(db.data.users) || !Array.isArray(db.data.bots) || !Array.isArray(db.data.logs)) {
+                db.data = { users: [], bots: [], logs: [] };
+            }
+
+            if (db.data.users.length === 0) {
                 console.log('No users found, creating default admin user...');
                 const salt = await bcrypt.genSalt(10);
                 const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD || 'password', salt);
