@@ -1,4 +1,7 @@
-# Firebase Studio
+# Telegram-Bot-Manager
+
+<img width="1920" height="869" alt="image" src="https://github.com/user-attachments/assets/0cfabf33-17c5-4f54-8e3c-5551423e2d32" />
+
 
 This is a NextJS starter in Firebase Studio.
 
